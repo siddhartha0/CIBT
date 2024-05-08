@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dynamic Table</title>
+  </head>
+  <body
+    class="flex flex-col p-6 border-2 border-black bg-black text-white gap-8 text-xl"
+  >
+    <div class="flex justify-center gap-8 place-items-end">
+      <div class="flex flex-col gap-1">
+        <label class="text-white text-opacity-[0.6] text-sm"
+          >Enter the column number</label
+        >
+        <input
+          type="number"
+          class="p-2 rounded-md bg-white text-md text-black outline-none border-none"
+          id="columnInput"
+        />
+      </div>
+      <button id="btn">Construct</button>
+      <button id="clear">clear</button>
+    </div>
+
+    <div
+      class="grid grid-cols-3 grid-flow-rows p-4 item-center gap-4 place-items-center border-2"
+      id="div"
+    >
+      <span id="colNumber" class="hidden"></span>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>

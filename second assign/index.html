@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table
+      id="table"
+      border="1"
+      style="width: 100%; text-transform: capitalize"
+    >
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>address</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+  <script>
+    const users = [
+      {
+        id: 1,
+        name: "xinu",
+        address: "satdobato",
+      },
+      {
+        id: 2,
+        name: "cinu",
+        address: "sindhuli",
+      },
+      {
+        id: 3,
+        name: "sid",
+        address: "butwal",
+      },
+      {
+        id: 4,
+        name: "siddhartha",
+        address: "anfa",
+      },
+      {
+        id: 5,
+        name: "kalye",
+        address: "bajaar",
+      },
+    ];
+    let tablebody = document.getElementById("table");
+    let tableHTML = "<tbody>";
+
+    users.map((user) => {
+      tableHTML += "<tr>";
+      tableHTML += `<td>${user.id}</td>`;
+      tableHTML += `<td>${user.name}</td>`;
+      tableHTML += `<td>${user.address}</td>`;
+
+      tableHTML += "</tr>";
+    });
+    tableHTML += "</tbody>";
+
+    tablebody.innerHTML += tableHTML;
+  </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flexbox">
+      <input type="number" id="input" />
+      <button id="gen">Generate</button>
+      <button id="del">Clear</button>
+    </div>
+    <div id="tableDiv"></div>
+  </body>
+  <script>
+    const genTable = () => {
+      let tableDiv = document.getElementById("tableDiv");
+      tableDiv.style.display = "flex";
+      tableDiv.style.flexDirection = "column";
+
+      let getColNumbers = parseInt(document.getElementById("input").value);
+
+      if (getColNumbers > 0) {
+        let table = `<table id='table' border="1" style="width:100%;margin-top:1rem"> <thead>`;
+
+        table += "<tr>";
+        for (let i = 1; i <= getColNumbers; i++) {
+          table += `<th>${i}</th>`;
+          if (i % 3 === 0) table += "</tr>";
+        }
+        if (getColNumbers % 3 === 1) {
+          table += `<th>${getColNumbers + 1}</th>`;
+          table += `<th>${getColNumbers + 2}</th>`;
+        }
+        if (getColNumbers % 3 === 2) {
+          table += `<th>${getColNumbers + 1}</th>`;
+        }
+        table += "</thead> </table>";
+        tableDiv.innerHTML += table;
+      }
+    };
+    document.getElementById("gen").addEventListener("click", genTable);
+
+    const removeTable = () => {
+      let table = document.getElementById("tableDiv");
+      if (table) table.innerHTML = null;
+      console.log("hello");
+    };
+    document.getElementById("del").addEventListener("click", removeTable);
+  </script>
+</html>
