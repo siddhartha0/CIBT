@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #root {
+        font-family: "Montserrat";
+        font-optical-sizing: auto;
+        font-weight: 300;
+        font-style: normal;
+        background-color: #f6f9fc;
+      }
+      .calculator {
+        display: flex;
+        width: 650px;
+        gap: 2rem;
+        margin: auto;
+        margin-top: 4rem;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+      }
+    </style>
+  </head>
+  <body id="root">
+    <div class="calculator p-8">
+      <div class="bg-white p-2 rounded-md text-black text-center">
+        <input
+          type="text"
+          class="outline-none border-none bg-transparent"
+          id="inputValue"
+        />
+        <button id="btn">Calculate</button>
+      </div>
+      <div
+        class="grid grid-cols-4 gap-4 text-2xl font-bold"
+        id="calculatorMenu"
+        rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+        rrrrrr
+        rrrrrrr
+        rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+      ></div>
+    </div>
+  </body>
+  rrrrrrrrrrrrrrrrrrrrrrrrrppppppppppppppppppppppppppppppp
+  <script>
+    let getBtn = document.getElementById("btn");
+    const operators = [
+      {
+        id: 1,
+        value: "+",
+      },
+      {
+        id: 2,
+        value: "-",
+      },
+      {
+        id: 3,
+        value: "*",
+      },
+      {
+        id: 4,
+        value: "/",
+      },
+    ];
+    const values = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+    let getMenu = document.getElementById("calculatorMenu");
+
+    var inputTaken = [];
+    var inputs = "";
+
+    let displayValue = (number) => {
+      console.log(number);
+      inputTaken.push(number);
+      const newValue = inputTaken.slice(",").join("");
+      inputs = newValue;
+      inputValue.value = newValue;
+    };
+
+    for (let i = 0; i < operators.length; i++) {
+      let newSpan = `<button class='cursor-pointer'
+      id=''
+          onclick='console.log(${operators[i].value})'>
+          ${operators[i].value}
+          </button>`;
+      getMenu.innerHTML += newSpan;
+    }
+
+    for (let i = 0; i < values.length; i++) {
+      let newSpan = `<span class='cursor-pointer'
+          onclick='displayValue(${values[i]})'>
+          ${values[i]}
+          </span>`;
+      getMenu.innerHTML += newSpan;
+    }
+
+    let inputValue = document.getElementById("inputValue");
+    // inputTaken.map((input) => (inputValue.value = input));
+    inputValue.value =
+      inputTaken && inputTaken.map((input) => input.toString());
+
+    getBtn.addEventListener("click", () => {
+      const newV = inputs.split("+");
+      let sum = 0;
+      newV.forEach((v, i) => (sum += parseInt(v)));
+      inputValue.value = sum;
+      //   const newValue = inputTaken.slice(",").join("");
+      //   const newv = newValue.split("+").;
+      //   console.log(newv);
+      //   inputValue.value = newValue;
+      //   console.log(newValue);
+      //   var getInput = document.getElementById("inputValue").value;
+      //   let getRealInput = [];
+      //   const newv = operators.map((operates) =>
+      //     getInput.includes(operates)
+      //       ? getRealInput.push(getInput.split(operates))
+      //       : ""
+      //   );
+      //   let operator = "";
+      //   const getOperator = operators.filter((operates) =>
+      //     getInput.includes(operates) ? (operator = getInput.split(operates)) : ""
+      //   );
+      //   console.log(getRealInput);
+      //   getRealInput.map((input, i) => {
+      //     console.log(input[0] + input[1]);
+      //   });
+    });
+  </script>
+</html>
